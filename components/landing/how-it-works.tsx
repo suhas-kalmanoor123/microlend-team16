@@ -86,7 +86,7 @@ export function HowItWorks() {
                     />
                   </>
                 )}
-                <div className="relative z-10 flex size-10 shrink-0 items-center justify-center rounded-lg border bg-card text-foreground shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-colors duration-200 group-hover:border-primary/40 group-hover:text-primary">
+                <div className="relative z-10 flex size-10 shrink-0 items-center justify-center rounded-lg border bg-card text-foreground shadow-xs transition-colors duration-200 group-hover:border-primary/40 group-hover:text-primary">
                   <Icon className="size-[18px]" strokeWidth={1.75} aria-hidden="true" />
                 </div>
                 <div className="pt-0.5 lg:pt-0">

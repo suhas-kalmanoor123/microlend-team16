@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Wordmark } from "@/components/landing/wordmark";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export function SiteNav() {
   return (
@@ -15,6 +16,7 @@ export function SiteNav() {
           <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex">
             <a href="#how-it-works">How it works</a>
           </Button>
+          <ThemeToggle />
           <Button asChild size="sm" className="group">
             <Link href="/login">
               Try the Demo

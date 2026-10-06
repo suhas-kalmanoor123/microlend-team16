@@ -11,7 +11,7 @@ export function PreviewCard() {
   return (
     <figure
       aria-label="Example loan assessment"
-      className="rounded-xl border bg-card shadow-[0_1px_2px_rgba(15,23,42,0.04),0_8px_24px_-12px_rgba(15,23,42,0.08)]"
+      className="rounded-xl border bg-card shadow-card"
     >
       <div className="flex items-center justify-between border-b px-5 py-3">
         <p className="text-xs font-medium text-muted-foreground">Feasibility assessment</p>

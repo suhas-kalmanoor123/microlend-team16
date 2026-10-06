@@ -9,15 +9,16 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground shadow-[0_1px_2px_rgba(15,23,42,0.12)] hover:bg-primary-hover",
+          "bg-primary text-primary-foreground shadow-sm hover:bg-primary-hover",
         outline:
-          "border bg-card text-foreground shadow-[0_1px_2px_rgba(15,23,42,0.04)] hover:border-slate-300 hover:bg-muted",
+          "border bg-card text-foreground shadow-xs hover:border-border-strong hover:bg-muted",
         ghost: "text-muted-foreground hover:bg-muted hover:text-foreground",
       },
       size: {
         default: "h-10 px-4",
         sm: "h-8 px-3 text-[13px]",
         lg: "h-11 px-5",
+        icon: "size-8",
       },
     },
     defaultVariants: {
