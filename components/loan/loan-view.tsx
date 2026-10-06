@@ -159,7 +159,7 @@ export function LoanView() {
               </div>
               <div className="flex justify-between gap-4">
                 <dt className="text-muted-foreground">Network</dt>
-                <dd className="text-foreground">Base Sepolia</dd>
+                <dd className="text-foreground">Ethereum Sepolia</dd>
               </div>
             </dl>
             <Link href={`/loan/${loan.id}/repayments`} className={primaryButton}>

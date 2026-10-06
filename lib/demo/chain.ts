@@ -36,5 +36,5 @@ export async function completeLoanOnChain(loanId: string): Promise<{ txHash: str
 }
 
 export function explorerTxUrl(txHash: string): string {
-  return "https://sepolia.basescan.org/tx/" + txHash;
+  return "https://sepolia.etherscan.io/tx/" + txHash;
 }
