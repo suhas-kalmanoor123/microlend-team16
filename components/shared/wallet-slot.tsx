@@ -18,7 +18,7 @@ export function WalletSlot({ connected, onConnectedChange }: Props) {
             0x71A...92F
           </span>
           <span className="rounded-md border border-border px-2 py-1 text-xs text-muted-foreground">
-            Base Sepolia
+            Ethereum Sepolia
           </span>
           <button
             type="button"
