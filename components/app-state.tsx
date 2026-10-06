@@ -11,12 +11,20 @@ import type {
 
 const STORAGE_KEY = "microlend:app-state";
 
+export type ChainEvent = {
+  type: "AGREEMENT" | "REPAYMENT" | "COMPLETION";
+  txHash: string;
+  timestamp: number;
+  label: string;
+};
+
 type PersistedState = {
   borrower: BorrowerProfile | null;
   loanRequest: LoanRequest | null;
   feasibility: FeasibilityResult | null;
   matches: LenderMatch[] | null;
   acceptedLoan: Loan | null;
+  chainEvents: ChainEvent[];
 };
 
 type AppStateValue = PersistedState & {
@@ -25,6 +33,8 @@ type AppStateValue = PersistedState & {
   setAssessment: (request: LoanRequest, result: FeasibilityResult) => void;
   setMatches: (matches: LenderMatch[]) => void;
   setAcceptedLoan: (loan: Loan) => void;
+  updateLoan: (patch: Partial<Loan>) => void;
+  addChainEvent: (event: ChainEvent) => void;
   reset: () => void;
 };
 
@@ -34,6 +44,7 @@ const emptyState: PersistedState = {
   feasibility: null,
   matches: null,
   acceptedLoan: null,
+  chainEvents: [],
 };
 
 let currentState: PersistedState | null = null;
@@ -79,9 +90,23 @@ const actions = {
   setBorrower: (borrower: BorrowerProfile) =>
     update((prev) => (prev.borrower?.id === borrower.id ? prev : { ...emptyState, borrower })),
   setAssessment: (loanRequest: LoanRequest, feasibility: FeasibilityResult) =>
-    update((prev) => ({ ...prev, loanRequest, feasibility, matches: null, acceptedLoan: null })),
+    update((prev) => ({
+      ...prev,
+      loanRequest,
+      feasibility,
+      matches: null,
+      acceptedLoan: null,
+      chainEvents: [],
+    })),
   setMatches: (matches: LenderMatch[]) => update((prev) => ({ ...prev, matches })),
-  setAcceptedLoan: (acceptedLoan: Loan) => update((prev) => ({ ...prev, acceptedLoan })),
+  setAcceptedLoan: (acceptedLoan: Loan) =>
+    update((prev) => ({ ...prev, acceptedLoan, chainEvents: [] })),
+  updateLoan: (patch: Partial<Loan>) =>
+    update((prev) =>
+      prev.acceptedLoan ? { ...prev, acceptedLoan: { ...prev.acceptedLoan, ...patch } } : prev,
+    ),
+  addChainEvent: (event: ChainEvent) =>
+    update((prev) => ({ ...prev, chainEvents: [...prev.chainEvents, event] })),
   reset: () => update(() => emptyState),
 };
 
