@@ -1,0 +1,40 @@
+   import type { BorrowerProfile } from "@/lib/types";
+
+   export const mockBorrowers: BorrowerProfile[] = [
+     {
+       id: "borrower-1",
+       name: "Aarav Sharma",
+       age: 21,
+       monthlyIncome: 25000,
+       monthlyExpenses: 15000,
+       existingObligations: 0,
+       previousLoans: 1,
+       successfullyRepaid: 1,
+       missedPayments: 0,
+       incomeStability: "MODERATE",
+     },
+     {
+       id: "borrower-2",
+       name: "Priya Nair",
+       age: 29,
+       monthlyIncome: 60000,
+       monthlyExpenses: 25000,
+       existingObligations: 5000,
+       previousLoans: 3,
+       successfullyRepaid: 3,
+       missedPayments: 0,
+       incomeStability: "STABLE",
+     },
+     {
+       id: "borrower-3",
+       name: "Rohan Mehta",
+       age: 24,
+       monthlyIncome: 18000,
+       monthlyExpenses: 14000,
+       existingObligations: 2000,
+       previousLoans: 2,
+       successfullyRepaid: 1,
+       missedPayments: 2,
+       incomeStability: "IRREGULAR",
+     },
+   ];
